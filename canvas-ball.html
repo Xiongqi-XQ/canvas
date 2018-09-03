@@ -12,13 +12,19 @@
 <body>
   <div class="input">
     <a href="./text">text</a>
+    <input type="text" id="img" onkeypress="if(event.keyCode==13)image()">
+    <label onclick="image()">图像</label>
+    <input type="text" id="text" onkeypress="if(event.keyCode==13)text()">
+    <label onclick="text()">换字</label>
+
+    <label onclick="init1()">随机球</label>
     <input type="checkbox" id="jianbian" onclick="colorType=!colorType">
     <label for="jianbian">渐变</label>
     <input type="checkbox" checked id="auto" onclick="auto=!auto">
-    <label for="jianbian">自己动</label>
+    <label for="jianbian">自动</label>
   </div>
   <div id="root">
-    <canvas id="canvas" width="400" height="400">不支持 Canvas</canvas>
+    <!-- <canvas id="canvas" width="400" height="400">不支持 Canvas</canvas> -->
   </div>
   <script src="./util.js"></script>
   <script src="./canvas-ball.js"></script>
