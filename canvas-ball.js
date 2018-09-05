@@ -121,22 +121,22 @@ function rotateFnc(event, balls) {
 
   // man(balls, Xdis*0.05);
   if (auto) anime(balls, -Xdis * speed, Ydis * speed);
-  else man(balls, Xdis * 0.05, Ydis * 0.05);
+  else man(balls, Xdis * 0.0001, Ydis * 0.0001);
 }
 function man(balls, ry, rx) {
   if (un) cancelAnimationFrame(un);
   clear();
   balls.sort((a, b) => b.z - a.z).forEach(ball => ball.rotate(ry, rx));
 }
-function anime(balls, speed1, speed2) {
+function anime(balls, angleY, angleX) {
   if (un) cancelAnimationFrame(un);
   un = requestAnimationFrame(() => frame());
   function frame() {
     // console.log(angleY);
     clear();
     balls.sort((a, b) => b.z - a.z).forEach(ball => ball.rotate(angleY, angleX));
-    angleY += speed1;
-    angleX += speed2;
+    // angleY += speed1;
+    // angleX += speed2;
     // console.log(angleY,angleX);
     // console.log(angleY);
     un = requestAnimationFrame(() => frame());
@@ -207,6 +207,11 @@ class Ball {
     // console.log('scale', scale);
     // const x = Xc - (Xc - x1) * scale;
     // const y = Yc - (Yc - this.y) * scale;
+
+    this.xpos = x1;
+    this.ypos = y1;
+    this.zpos = z1
+
     this.x = Xc + x1 * scale;
     this.y = Yc + y1 * scale;
     this.z = z1;
