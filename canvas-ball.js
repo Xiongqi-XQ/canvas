@@ -28,6 +28,8 @@ let speed = 0.000015;
 
 sessionStorage.img = sessionStorage.img || 'svg.svg';
 sessionStorage.text = sessionStorage.text || 'HUY';
+sessionStorage.randomz = sessionStorage.randomz || 0;
+sessionStorage.now = sessionStorage.now || 0;
 
 function init3() {
   clear();
@@ -43,7 +45,7 @@ function init3() {
     pos = getIMGPoints(imageData, 13, 200);
     clear();
     pos.forEach(({ x, y, rgba }) => {
-      let ball = new Ball({ xpos: x - Xc, ypos: y - Yc, zpos: 0, r: 3, rgba });
+      let ball = new Ball({ xpos: x - Xc, ypos: y - Yc, zpos: random(Number(sessionStorage.randomz))||0, r: 3, rgba });
       balls.push(ball);
       ball.draw({});
     });
@@ -68,7 +70,7 @@ function init2() {
   pos = getPoints(imageData, 7, 200);
   clear();
   pos.forEach(({ x, y }) => {
-    const ball = new Ball({ xpos: x - Xc, ypos: y - Yc, zpos: 0, r: 2 });
+    const ball = new Ball({ xpos: x - Xc, ypos: y - Yc, zpos: random(Number(sessionStorage.randomz))||0, r: 2 });
     balls.push(ball);
     ball.draw({});
   });
@@ -77,6 +79,7 @@ function init2() {
   rotateFnc({ offsetX: Xc + 100, offsetY: Yc }, balls);
 }
 function init1() {
+  sessionStorage.now = 1;
   clear();
   if (un) cancelAnimationFrame(un);
   const balls = [];
@@ -121,12 +124,12 @@ function rotateFnc(event, balls) {
 
   // man(balls, Xdis*0.05);
   if (auto) anime(balls, -Xdis * speed, Ydis * speed);
-  else man(balls, Xdis * 0.0001, Ydis * 0.0001);
+  else man(balls, -Xdis * speed, Ydis * speed);
 }
-function man(balls, ry, rx) {
+function man(balls, angleY, angleX) {
   if (un) cancelAnimationFrame(un);
   clear();
-  balls.sort((a, b) => b.z - a.z).forEach(ball => ball.rotate(ry, rx));
+  balls.sort((a, b) => b.z - a.z).forEach(ball => ball.rotate(angleY, angleX));
 }
 function anime(balls, angleY, angleX) {
   if (un) cancelAnimationFrame(un);

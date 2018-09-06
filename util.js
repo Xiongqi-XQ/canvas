@@ -52,13 +52,41 @@ function text(event) {
   const value = document.querySelector('#text').value || sessionStorage.text;
   sessionStorage.text = value;
   document.querySelector('#text').value = '';
+  sessionStorage.now = 2
   init2();
 }
 
 function image(event) {
   const value = document.querySelector('#img').value || sessionStorage.img;
   sessionStorage.img = value;
+  sessionStorage.now = 3
   init3();
+}
+
+function selected(event) {
+  console.log(event,document.querySelector('#select').value);
+  const value = document.querySelector('#select').value || 'svg.svg';
+  sessionStorage.img = value;
+  init3();
+}
+
+function randomz(event) {
+  const value = document.querySelector('#randomz').value || sessionStorage.randomz;
+  sessionStorage.randomz = value;
+  switch (sessionStorage.now) {
+    case '3':
+      init3();
+      break;
+    case '2':
+      init2();
+      break;
+    case '1':
+      init1();
+      break;
+    default:
+      init3();
+      break;
+  }
 }
 
 function imgZoomFnc(img, W = 800, H = 800, bigger = 1) {
