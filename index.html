@@ -2,18 +2,56 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Canvas</title>
-  <link rel="stylesheet" href="./index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas-Balls</title>
+  <link rel="stylesheet" href="./ball/canvas-ball.css">
 </head>
 
 <body>
-  <div id="root">
-    <canvas id="canvas" width="200" height="200">不支持 Canvas</canvas>
+  <div class="input">
+    <div>
+      <input type="text" id="randomz" onkeypress="if(event.keyCode==13)clickFunc(event,'randomz')" placeholder="图片文字随机z值 (-z~z)">
+      <label onclick="clickFunc(event,'randomz')">随机z</label>
+    </div>
+    <div>
+      <select id="select" onchange="clickFunc(event,'selected')">
+        <option disabled selected value>choose</option>
+        <option value="d.svg">dwd</option>
+        <option value="google.png">google</option>
+        <option value="github.png">github</option>
+        <option value="mogu.png">mogu</option>
+      </select>
+      <input type="text" id="img" onkeypress="if(event.keyCode==13)clickFunc(event, 'img')" placeholder="...">
+      <label onclick="clickFunc(event, 'img')">图像</label>
+    </div>
+    <div>
+      <label name="text" onclick="clickFunc(event,'text')">转字</label>
+      <input type="text" id="text" onkeypress="if(event.keyCode==13)clickFunc(event,sessionStorage.now)" placeholder="换字">
+      <label name="boom" onclick="clickFunc(event,'boom')">Boom</label>
+    </div>
+
+    <label onclick="clickFunc(event,'simple')">随机球</label>
+    <div>
+      <input type="checkbox" id="colorText" onclick="autoColorText=!autoColorText">
+      <label for="colorText">随机色</label>
+    </div>
+    <div>
+      <input type="checkbox" id="jianbian" onclick="autoColor=!autoColor">
+      <label for="jianbian">渐变</label>
+    </div>
+    <div>
+      <input type="checkbox" checked id="autoCircle" onclick="autoCircle=!autoCircle">
+      <label for="autoCircle">自动</label>
+    </div>
+    <a href="./text">text</a>
   </div>
-  <script src="./index.js"></script>
+  <div id="root">
+    <!-- <canvas id="canvas" width="400" height="400">不支持 Canvas</canvas> -->
+  </div>
+  <script src="./ball/util.js"></script>
+  <script src="./ball/canvas-ball.js"></script>
 </body>
 
 </html>

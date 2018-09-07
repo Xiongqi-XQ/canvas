@@ -2,6 +2,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background: black;
+  color: white;
 }
 * {
   margin: 0;
@@ -10,13 +12,37 @@ body {
 
 #root {
   display: flex;
-  height: calc(100% - 30px);
   width: 100%;
+  /* height: 100%; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+}
+label {
+  margin: 0 30px 0 5px;
+  cursor: pointer;
+}
+
+label[name=text] {
+  margin: 0 2px;
+}
+a {
+  color: white;
 }
 .input {
-  margin: 10px;
-  padding: 5px;
+  /* margin: 10px; */
+  position: relative;
+  z-index: 1;
+  padding: 20px 0 0 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 30px;
@@ -28,17 +54,11 @@ body {
   border: 1px solid #89caff;
   height: 100%;
 }
-#button {
+button {
   padding: 0 5px;
   border-radius: 5px;
   margin: 0 5px;
   height: 100%;
   border-color: #89caff;
   outline: none;
-}
-#canvas {
-  /* width: 100%;
-  height: 80%; */
-  margin: auto;
-  /* border: 1px solid yellow; */
 }

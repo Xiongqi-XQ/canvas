@@ -67,10 +67,8 @@ function canvas() {
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillText(text, el.width / 2, el.height / 2, 300)
-  // ctx.fillText('熊漆', 0, 0, 250);
 
   const imageData = ctx.getImageData(0, 0, el.width, el.height)
-  // console.log(imageData);
 
   pos = getPoints(imageData, 0, 0)
   dotDraw(pos, ctx)
@@ -96,7 +94,7 @@ class dot {
     this.x = point.x
     this.y = point.y
     this.z = 0
-    this.r = random
+    this.r = 2
     this.xrun = point.x
     this.yrun = point.y
     this.zrun = 0
@@ -109,7 +107,7 @@ class dot {
     this.boomY = random(H)
   }
   get color() {
-    return `hsl(${this.colorHSL},100%,50%)`
+    return `hsl(${200},100%,50%)`
   }
 
   draw() {
