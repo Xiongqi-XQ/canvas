@@ -20,9 +20,9 @@ let autoCircle = true
 let autoColorText = false
 let un
 
-sessionStorage.img = sessionStorage.img || 'img/d.svg'
+sessionStorage.img = sessionStorage.img || 'img/google.png'
 sessionStorage.text = sessionStorage.text || 'HUY'
-sessionStorage.randomz = sessionStorage.randomz || 0
+sessionStorage.randomz = sessionStorage.randomz || 100
 sessionStorage.now = 'img'
 
 let angleYtotal = 0
