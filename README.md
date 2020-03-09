@@ -1,6 +1,6 @@
 ## [canvas][1] - [http://league.xhuyq.me/canvas][1]
 
-canvas 3D效果
+canvas 3D 效果
 
 ![demo](demo.gif)
 
