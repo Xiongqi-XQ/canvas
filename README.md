@@ -2,6 +2,8 @@
 
 canvas 3D 效果
 
+ppt: [ppt.key](ppt.key)
+
 ![demo](demo.gif)
 
 [1]: http://league.xhuyq.me/canvas/
